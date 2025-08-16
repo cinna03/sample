@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background with blur effect */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.blurred-background {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(8px);
+    transform: scale(1.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Content overlay with frosted glass effect */
+.content-overlay {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background: rgba(34, 51, 34, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header styles - Main page specific */
+.main-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+}
+
+.menu-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.site-title {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.main-heading h1 {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: right;
+}
+
+/* Navigation Links */
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+}
+
+/* Main content styles */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    flex: 1;
+}
+
+.image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icon-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+    border-radius: 15px;
+    min-height: 200px; /* Ensure minimum height for visibility */
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle background to show container */
+}
+
+.icon-container:hover {
+    transform: scale(1.02);
+}
+
+.icon-container:hover .icon-image {
+    transform: scale(1.02);
+}
+
+.text-section {
+    color: white;
+}
+
+.content-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.content-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: white;
+}
+
+.content-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Footer styles */
+.footer {
+    /* Footer content removed - keeping minimal structure */
+    margin-top: auto;
+    min-height: 20px; /* Minimal height to maintain layout */
+}
+
+/* Remove unused button and text styles */
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .content-overlay {
+        padding: 1.5rem;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+    
+    .main-heading h1 {
+        font-size: 2.5rem;
+        text-align: left;
+    }
+    
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .content-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-heading h1 {
+        font-size: 2rem;
+    }
+    
+    .content-title {
+        font-size: 2rem;
+    }
+    
+    .icon-container {
+        max-width: 300px;
+    }
+}
